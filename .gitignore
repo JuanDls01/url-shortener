@@ -1,7 +1,10 @@
 # compiled output
 /dist
+**/dist
 /node_modules
+**/node_modules
 /build
+**/build
 
 # Logs
 logs
@@ -17,6 +20,7 @@ lerna-debug.log*
 
 # Tests
 /coverage
+**/coverage
 /.nyc_output
 
 # IDEs and editors
@@ -56,4 +60,11 @@ pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Prisma generated client
-src/generated/
+**/src/generated/
+
+# Turborepo
+.turbo
+
+# Next.js
+.next
+out

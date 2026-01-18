@@ -35,6 +35,20 @@ Based on a long URL like `https://www.systeminterview.com/q=chatsystem&c=loggedi
 
 One-on-one chat backend that allows users chat with others.
 
+## Project Structure
+
+This project uses [Turborepo](https://turbo.build/) for managing multiple applications:
+
+```
+/design-system/
+├── apps/
+│   ├── api/          ← NestJS API (port 3000)
+│   └── web/          ← Next.js 15 App Router (port 3001)
+├── docker-compose.yml
+├── turbo.json
+└── package.json
+```
+
 ## Get started
 
 ### Prerequisites
@@ -44,10 +58,10 @@ One-on-one chat backend that allows users chat with others.
 
 ### Environment variables
 
-Copy the `.env.example` file to `.env` and fill in the values:
+Copy the `.env.example` file to `.env` in the `apps/api` directory and fill in the values:
 
 ```bash
-cp .env.example .env
+cp apps/api/.env.example apps/api/.env
 ```
 
 Example configuration for local development:
@@ -64,7 +78,7 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/design_system
 docker compose up -d
 ```
 
-2. Install dependencies (this will also generate the Prisma Client automatically):
+2. Install all dependencies from the root directory:
 
 ```bash
 npm install
@@ -73,11 +87,33 @@ npm install
 3. Run database migrations:
 
 ```bash
-npx prisma migrate dev
+cd apps/api && npx prisma migrate dev
 ```
 
-4. Run the application:
+4. Run both applications in development mode:
 
 ```bash
-npm run start:dev
+npm run dev
+```
+
+This will start:
+- API at http://localhost:3000
+- Web at http://localhost:3001
+
+### Individual Commands
+
+Run commands for specific apps:
+
+```bash
+# API only
+npm run dev --filter=@design-system/api
+
+# Web only
+npm run dev --filter=@design-system/web
+
+# Build all apps
+npm run build
+
+# Run tests
+npm run test
 ```
