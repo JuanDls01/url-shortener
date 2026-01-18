@@ -1,29 +1,39 @@
-# URL Shortener
+# Design System
 
-This is a simple URL shortener with the purpose to learn and practice about Design Systems and NestJS. This project follow the approach of re inventing the wheel to deep dive into design systems.
+A collection of system design projects from the System Design Interview book. The purpose of this repository is to learn and practice system design concepts by implementing real-world projects.
 
-Exercise requirement assumptions:
+**Roadmap overview:**
 
-1. Based on a long url like `https://www.systeminterview.com/q=chatsystem&c=loggedin&v=v3&l=long`, the service must create an alias with shorter length `https://tinyurl.com/y7keocwj` and if click the alias, it redirects you to the original URL.
+- [ ] Project Features
+  - [ ] Authentication
+  - [ ] Deploy project
+  - [ ] Implement caching
+  - [ ] Implement swagger
+  - [ ] Performance metrics
+- [x] URL Shortener
+  - [x] Create endpoints for creating and redirecting short URLs
+  - [x] Generate hash function to create tiny urls
+  - [x] Save URLs in PostgreSQL using Prisma
+- [ ] Chat System
+  - [ ]
 
-2. Characters allowed in the short url: numbers (0-9) and characters (a-z, A-Z).
+## Projects
 
-3. The shortened URL must be as short as possible.
+### 1. URL Shortener
 
-4. The traffic volume is 100 million URLs are generated per day.
+Based on a long URL like `https://www.systeminterview.com/q=chatsystem&c=loggedin&v=v3&l=long`, the service creates an alias with shorter length `https://tinyurl.com/y7keocwj` and if you click the alias, it redirects you to the original URL.
 
-## Roadmap
+**Requirements:**
 
-- [x] Create endpoints with `@Controller()` for:
-  - Create a short url with a long url.
-  - Get a long url and redirect the user to this with a short url.
-- [x] Generate hash function to create tiny urls with long urls
-- [x] Save the urls in a PostgreSQL database using Prisma
-- [ ] Deploy it
-- [ ] Implement caching
-- [ ] Implement swagger
+- Characters allowed in the short url: numbers (0-9) and characters (a-z, A-Z)
+- The shortened URL must be as short as possible
+- Design for 100 million URLs generated per day
 
 ![URL redirecting design](image.png)
+
+### 2. Chat System
+
+One-on-one chat backend that allows users chat with others.
 
 ## Get started
 
@@ -43,7 +53,7 @@ cp .env.example .env
 Example configuration for local development:
 
 ```
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/url_shortener
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/design_system
 ```
 
 ### Installation

@@ -1,7 +1,7 @@
 {
-  "name": "url-shortener",
+  "name": "design-system",
   "version": "0.0.1",
-  "description": "",
+  "description": "A collection of system design projects from the System Design Interview book",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
