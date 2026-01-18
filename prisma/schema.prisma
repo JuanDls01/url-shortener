@@ -1,0 +1,16 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  // Forces Prisma to generate a CommonJS module instead of ESM, for NestJS compability
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Url {
+  id       Int    @id @default(autoincrement())
+  shortUrl String @unique
+  longUrl  String
+}

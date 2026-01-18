@@ -43,13 +43,19 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/url_shortener
 docker compose up -d
 ```
 
-2. Install dependencies:
+2. Install dependencies (this will also generate the Prisma Client automatically):
 
 ```bash
 npm install
 ```
 
-3. Run the application:
+3. Run database migrations:
+
+```bash
+npx prisma migrate dev
+```
+
+4. Run the application:
 
 ```bash
 npm run start:dev
